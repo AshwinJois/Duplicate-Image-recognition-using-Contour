@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Nov  7 11:08:53 2021
-
-@author: ashwi
-"""
 
 import cv2
 import imutils
