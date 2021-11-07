@@ -77,15 +77,15 @@ for i in range(len(Outpt_compare_frame_func)-1):
     next_frame = (Outpt_compare_frame_func[i+1])
     compare_func_result = compare_frames_change_detection(previous_frame,next_frame,300)
     score, res_cnts, thresh = compare_func_result
-    #print(i,i+1,score)
+    
     if score == 0:
         #print(i,i+1,score)
-        path = r"G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\Sample Images\trail\7thNov\Same_Images\\"+str(i)+".png"
+        path = r"G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\Sample Images\trail\7thNov\Duplicate_Images\\"+str(i)+".png"
         cv2.imwrite(path,Outpt_compare_frame_func[i])
-        #print(images_phase2[i][1])
+        
     else:
         #print(i,i+1,score)
-        path = r"G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\Sample Images\trail\7thNov\Diff_Images\\"+str(i)+".png"
+        path = r"G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\Sample Images\trail\7thNov\Unique_Images\\"+str(i)+".png"
         cv2.imwrite(path,Outpt_compare_frame_func[i])    
 
 
