@@ -56,14 +56,14 @@ def compare_frames_change_detection(prev_frame, next_frame, min_contour_area):
     return score, res_cnts, thresh
 
 
-Input_Images = [cv2.imread(file) for file in glob.glob(r'G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\c23\*.png')]
+Input_Images = [cv2.imread(file) for file in glob.glob(r'G:\ICS_Sylabus\Kopernikus\c23\*.png')]  # Reads all the images in the dataset
 
 Outpt_compare_frame_func = []
 
 for i in range(len(Input_Images)):
     temp_image = Input_Images[i]
     preprocess_func_result = preprocess_image_change_detection(temp_image,(11,11),black_mask=(5, 10, 5, 0))
-    Outpt_compare_frame_func.append(preprocess_func_result)
+    Outpt_compare_frame_func.append(preprocess_func_result)                                     # Consists images obtained from preprocess_image_change_detection function 
 
 
 for i in range(len(Outpt_compare_frame_func)-1):
@@ -73,13 +73,13 @@ for i in range(len(Outpt_compare_frame_func)-1):
     score, res_cnts, thresh = compare_func_result
     
     if score == 0:
-        #print(i,i+1,score)
-        path = r"G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\Sample Images\trail\7thNov\Duplicate_Images\\"+str(i)+".png"
+        print(i,i+1,score)                                                                      # Prints the previous and next image's file name and the score between them
+        path = r"G:\ICS_Sylabus\Tasks\Kopernikus\Dataset\Duplicate_Images\\"+str(i)+".png"
         cv2.imwrite(path,Outpt_compare_frame_func[i])
         
     else:
-        #print(i,i+1,score)
-        path = r"G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\Sample Images\trail\7thNov\Unique_Images\\"+str(i)+".png"
+        print(i,i+1,score)
+        path = r"G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\Dataset\Unique_Images\\"+str(i)+".png"
         cv2.imwrite(path,Outpt_compare_frame_func[i])    
 
 
