@@ -78,7 +78,7 @@ Outpt_compare_frame_func = []
 for i in range(len(Input_Images)):
     temp_image = Input_Images[i]
     preprocess_func_result = preprocess_image_change_detection(temp_image,(11,11),black_mask=(5, 10, 5, 0))
-    Outpt_compare_frame_func.append(preprocess_func_result)  # Output_compare_frames_func list consists of the output images from the previous functiuons
+    Outpt_compare_frame_func.append(preprocess_func_result)  # Output_compare_frames_func list consists of the output images from the previous functions
 
 
 for i in range(len(Outpt_compare_frame_func)-1):
