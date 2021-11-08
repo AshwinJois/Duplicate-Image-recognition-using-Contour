@@ -61,24 +61,24 @@ def compare_frames_change_detection(prev_frame, next_frame, min_contour_area):
         
     return score, res_cnts, thresh
 
-
+# Function to create folders
 def create_folder(folder):  
     os.mkdir(folder)
     return folder
 
 
-Input_Images = [cv2.imread(file) for file in glob.glob(r'G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\c23\*.png')]
+Input_Images = [cv2.imread(file) for file in glob.glob(r'G:\Tasks\Kopernikus\c23\*.png')] # Path to dataset
 
-Duplicate_folder = create_folder(r'G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\c23\Duplicate_Images')
-Unique_folder = create_folder(r'G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\c23\Unique_Images')
+Duplicate_folder = create_folder(r'G:\Tasks\Kopernikus\c23\Duplicate_Images')  # Ducplicate_folder, to save the duplicate images in dataset 
+Unique_folder = create_folder(r'G:\Tasks\Kopernikus\c23\Unique_Images')        # Unique_folder, to save the unique images in dataset
 
-Outpt_compare_frame_func = []
+Outpt_compare_frame_func = []   
 
 
 for i in range(len(Input_Images)):
     temp_image = Input_Images[i]
     preprocess_func_result = preprocess_image_change_detection(temp_image,(11,11),black_mask=(5, 10, 5, 0))
-    Outpt_compare_frame_func.append(preprocess_func_result)
+    Outpt_compare_frame_func.append(preprocess_func_result)  # Output_compare_frames_func list consists of the output images from the previous functiuons
 
 
 for i in range(len(Outpt_compare_frame_func)-1):
@@ -89,12 +89,12 @@ for i in range(len(Outpt_compare_frame_func)-1):
     #print(i,i+1,score)
     if score == 0:
         #print(i,i+1,score)        
-        path = r"G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\c23\Duplicate_Images\\"+str(i)+".png"
+        path = r"G:\Tasks\kopernikus\c23\Duplicate_Images\\"+str(i)+".png"
         cv2.imwrite(path,Outpt_compare_frame_func[i])
 
     else:
         #print(i,i+1,score)
-        path = r"G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\c23\Unique_Images\\"+str(i)+".png"
+        path = r"G:\Tasks\Kopernikus\c23\Unique_Images\\"+str(i)+".png"
         cv2.imwrite(path,Outpt_compare_frame_func[i])  
       
 
