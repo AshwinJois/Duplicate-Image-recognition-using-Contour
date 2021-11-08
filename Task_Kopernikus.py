@@ -56,7 +56,7 @@ def compare_frames_change_detection(prev_frame, next_frame, min_contour_area):
     return score, res_cnts, thresh
 
 
-Input_Images = [cv2.imread(file) for file in glob.glob(r'G:\ICS_Sylabus\Kopernikus\c23\*.png')]  # Reads all the images in the dataset
+Input_Images = [cv2.imread(file) for file in glob.glob(r'G:\Tasks\Kopernikus\c23\*.png')]  # Reads all the images in the dataset
 
 Outpt_compare_frame_func = []
 
@@ -74,12 +74,12 @@ for i in range(len(Outpt_compare_frame_func)-1):
     
     if score == 0:
         print(i,i+1,score)                                                                      # Prints the previous and next image's file name and the score between them
-        path = r"G:\ICS_Sylabus\Tasks\Kopernikus\Dataset\Duplicate_Images\\"+str(i)+".png"
+        path = r"G:\Tasks\Kopernikus\Dataset\Duplicate_Images\\"+str(i)+".png"
         cv2.imwrite(path,Outpt_compare_frame_func[i])
         
     else:
         print(i,i+1,score)
-        path = r"G:\ICS_Sylabus\Full time job\Tasks\Kopernikus\Dataset\Unique_Images\\"+str(i)+".png"
+        path = r"G:\Tasks\Kopernikus\Dataset\Unique_Images\\"+str(i)+".png"
         cv2.imwrite(path,Outpt_compare_frame_func[i])    
 
 
