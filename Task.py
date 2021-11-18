@@ -67,10 +67,10 @@ def create_folder(folder):
     return folder
 
 
-Input_Images = [cv2.imread(file) for file in glob.glob(r'G:\Tasks\Kopernikus\c23\*.png')] # Path to dataset
+Input_Images = [cv2.imread(file) for file in glob.glob(r'G:\Tasks\c23\*.png')] # Path to dataset
 
-Duplicate_folder = create_folder(r'G:\Tasks\Kopernikus\c23\Duplicate_Images')  # Ducplicate_folder, to save the duplicate images in dataset 
-Unique_folder = create_folder(r'G:\Tasks\Kopernikus\c23\Unique_Images')        # Unique_folder, to save the unique images in dataset
+Duplicate_folder = create_folder(r'G:\Tasks\c23\Duplicate_Images')  # Ducplicate_folder, to save the duplicate images in dataset 
+Unique_folder = create_folder(r'G:\Tasks\c23\Unique_Images')        # Unique_folder, to save the unique images in dataset
 
 Outpt_compare_frame_func = []   
 
@@ -89,12 +89,12 @@ for i in range(len(Outpt_compare_frame_func)-1):
     #print(i,i+1,score)
     if score == 0:
         #print(i,i+1,score)        
-        path = r"G:\Tasks\kopernikus\c23\Duplicate_Images\\"+str(i)+".png"
+        path = r"G:\Tasks\c23\Duplicate_Images\\"+str(i)+".png"
         cv2.imwrite(path,Outpt_compare_frame_func[i])
 
     else:
         #print(i,i+1,score)
-        path = r"G:\Tasks\Kopernikus\c23\Unique_Images\\"+str(i)+".png"
+        path = r"G:\Tasks\c23\Unique_Images\\"+str(i)+".png"
         cv2.imwrite(path,Outpt_compare_frame_func[i])  
       
 
